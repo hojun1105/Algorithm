@@ -2,9 +2,9 @@ public class Solution {
     public int RomanToInt(string s) {
         var d = new List<int>();
         int rst =0;
-        for(int i=0; i<s.Length; i++)
+        foreach(var l in s)
         {
-            switch(s[i])
+            switch(l)
             {
                 case 'I':
                     d.Add(1);
