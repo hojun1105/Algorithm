@@ -2,7 +2,7 @@
 select p.product_id as product_id, 
 CASE 
     WHEN SUM(ISNULL(u.units, 0)) = 0 THEN 0
-    ELSE ROUND(CONVERT(FLOAT, SUM(p.price * ISNULL(u.units, 0))) / NULLIF(SUM(ISNULL(u.units, 0)), 0), 2)
+    ELSE ROUND(CONVERT(FLOAT, SUM(p.price * u.units)) / NULLIF(SUM(u.units), 0), 2)
   END AS average_price
 from Prices p 
 left outer join UnitsSold u 
